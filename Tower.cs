@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using static System.Math;
 
 namespace Castelian {
-	public class Cylinder {
+	public class Tower {
 
 		int Radius;
 		int sections;
@@ -13,24 +13,23 @@ namespace Castelian {
 		double angle;
 		double speed;
 		const double RAD = Math.PI / 180.0;
-		int crop;
+		int minRadius;
 
 		Texture2D wallTile;
 		Texture2D background;
 
 
-		public Cylinder(int _width, int _sections, Texture2D _texture, Texture2D _background) {
+		public Tower(int _width, int _sections, Texture2D _texture, Texture2D _background) {
 			wallTile = _texture;
 			background = _background;
 			Radius = _width / 2;
 			sections = _sections;
 			coords = new int[sections];
 			angle = 360.0 / sections;
-			speed = 30.0;
+			speed = 15.0;
 
 			double halfSide = Radius * (Sin((angle / 2.0) * RAD) / Sin(90.0 * RAD));
-			int minRadius = (int)Sqrt(Radius * Radius - halfSide * halfSide);
-			Console.WriteLine("minRadius: " + minRadius + ", halfside: " + halfSide);
+			minRadius = (int)Sqrt(Radius * Radius - halfSide * halfSide);
 		}
 
 		public double ViewAngle {
@@ -40,30 +39,35 @@ namespace Castelian {
 
 		public void Update(GameTime gameTime, Point cursor) {
 			double t = gameTime.TotalGameTime.TotalSeconds * speed;
-			double offset = cursor.X / 5.0;
+			double offset = cursor.X / 2.0;
 
 			ViewAngle = t % 360;
-			//ViewAngle = offset;
+			ViewAngle -=offset;
 
 			for (int i = 0; i < sections; i++) {
 				coords[i] = (int)(Sin((i * angle + ViewAngle) * RAD) * Radius);
-				//coords[i] = (int)(Sin((i * angle + ViewAngle) * RAD) * Radius);
+				coords[i] = Clamp(coords[i], -minRadius, minRadius);
 			}
 		}
 
-		Rectangle window = new(0, 0, 1024, 768);
+		Rectangle window = new(0, 0, Game1.WindowWidth, Game1.WindowHeight);
+
+		public void DrawBackground(SpriteBatch spriteBatch) {
+			int bgPos = (int)((background.Width / 360.0) * ViewAngle);
+			decimal zoom = 4M; // more zoomed in, faster scrolling
+			Rectangle bgView = new Rectangle(bgPos, 0, (int)(window.Width / zoom), (int)(window.Height / zoom));
+			spriteBatch.Draw(background, window, bgView, Color.White);
+		}
 
 		public void Draw(SpriteBatch spriteBatch) {
-			int bgPos = (int)((background.Width / 360.0) * -ViewAngle);
-			Rectangle bgView = new Rectangle(bgPos, 0, window.Width, window.Height);
-			spriteBatch.Draw(background, window, bgView, Color.White);
-
 			for(int i = 0; i < coords.Length; i++) {
-				int x1 = 512 + coords[i];
-				int x2 = 512 + coords[(i + 1) % coords.Length];
+				int center = Game1.WindowWidth / 2;
+				int x1 = center + coords[i];
+				int x2 = center + coords[(i + 1) % coords.Length];
+
 
 				Point pos = new(x1, 0);
-				Point size = new(x2 - x1, 768);
+				Point size = new(x2 - x1, Game1.WindowHeight);
 
 				Rectangle source = new Rectangle(-16, -16, wallTile.Width, 768);
 				Rectangle destination = new Rectangle(pos, size);
@@ -73,16 +77,14 @@ namespace Castelian {
 				spriteBatch.Draw(wallTile, destination, source, Color.White);
 
 				int y = i * 32 - 32;
-				while(y < 768) {
+				while(y < Game1.WindowHeight) {
 					Rectangle stripe = new(x1, y, x2 - x1, 64);
 					y += 32 * sections;
 					Primitives2D.FillRectangle(spriteBatch, stripe, Color.DarkBlue);
 				}
-				
-
-				
 			}
 		}
 
+		//end class
 	}
 }

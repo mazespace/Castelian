@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kf8gplVV6kNbQuqUWP7/zPwxUxDSiyYsSq6xwoLhZpgggD4XgsYv1nxXIdipkSe9mlCWWZ6hfjK77/4qpy1Xcg==",
+  "success": true,
+  "projectFilePath": "/Users/Radagast/VSProjects/Castelian/Castelian.csproj",
+  "expectedPackageFiles": [
+    "/Users/Radagast/.nuget/packages/monogame.content.builder.task/3.8.0.1641/monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "/Users/Radagast/.nuget/packages/monogame.framework.desktopgl/3.8.0.1641/monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+  ],
+  "logs": []
+}

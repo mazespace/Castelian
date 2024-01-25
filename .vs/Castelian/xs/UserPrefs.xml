@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{7E173834-C292-4E54-BC0B-8C2E56D9D072}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Cylinder.cs">
+    <Files>
+      <File FileName="Cylinder.cs" Line="53" Column="22" />
+      <File FileName="Game1.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Castelian" expanded="True">
+            <Node name="Castelian" expanded="True">
+              <Node name="Content" expanded="True" />
+              <Node name="Cylinder.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Castelian PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

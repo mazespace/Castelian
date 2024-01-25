@@ -17,7 +17,7 @@ namespace Castelian {
 		}
 
 		protected override void Initialize() {
-			Point WindowedSize = new(1024, 768);
+			Point WindowedSize = new(1024, 1024);
 
 			_graphics.IsFullScreen = false;
 

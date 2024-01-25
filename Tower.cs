@@ -69,7 +69,7 @@ namespace Castelian {
 				Point pos = new(x1, 0);
 				Point size = new(x2 - x1, Game1.WindowHeight);
 
-				Rectangle source = new Rectangle(-16, -16, wallTile.Width, 768);
+				Rectangle source = new Rectangle(-16, -16, wallTile.Width, Game1.WindowHeight);
 				Rectangle destination = new Rectangle(pos, size);
 
 				//Color color = i % 2 == 0 ? Color.White : Color.DarkBlue;

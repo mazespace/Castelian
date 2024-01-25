@@ -3,12 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace Castelian {
+
+
 	public class Game1 : Game {
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
-
-		public static int WindowWidth { get; private set; }
-		public static int WindowHeight { get; private set; }
 
 		public Game1() {
 			_graphics = new GraphicsDeviceManager(this);
@@ -16,10 +15,13 @@ namespace Castelian {
 			IsMouseVisible = true;
 		}
 
-		protected override void Initialize() {
-			Point WindowedSize = new(1024, 1024);
+		public static int WindowWidth, WindowHeight;
 
-			_graphics.IsFullScreen = false;
+		protected override void Initialize() {
+			Point WindowedSize = new(1280, 720);
+
+			_graphics.IsFullScreen = true;
+			_graphics.HardwareModeSwitch = false;
 
 			int displayWidth = GraphicsDevice.Adapter.CurrentDisplayMode.Width;
 			int displayHeight = GraphicsDevice.Adapter.CurrentDisplayMode.Height;
@@ -46,9 +48,12 @@ namespace Castelian {
 
 		protected override void LoadContent() {
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
+
 			Texture2D cylinderTexture = Content.Load<Texture2D>("bluebrick");
 			Texture2D background = Content.Load<Texture2D>("internetandrej_1_looped");
-			tower = new(656, 16, cylinderTexture, background);
+			Texture2D marble = Content.Load<Texture2D>("marbled");
+
+			tower = new(656, 16, cylinderTexture, background, marble);
 		}
 
 		protected override void Update(GameTime gameTime) {
@@ -64,12 +69,14 @@ namespace Castelian {
 			base.Update(gameTime);
 		}
 
+
+
 		protected override void Draw(GameTime gameTime) {
 			GraphicsDevice.Clear(Color.Black);
 			_spriteBatch.Begin(samplerState: SamplerState.PointWrap);
 			tower.DrawBackground(_spriteBatch);
 			_spriteBatch.End();
-			_spriteBatch.Begin(samplerState: SamplerState.AnisotropicWrap);
+			_spriteBatch.Begin(samplerState: SamplerState.AnisotropicWrap, sortMode: SpriteSortMode.FrontToBack);
 			tower.Draw(_spriteBatch);
 			_spriteBatch.End();
 

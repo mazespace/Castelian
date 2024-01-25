@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/Users/Radagast/VSProjects/Castelian/Content/bluebrick.png</SourceFile>
-  <SourceTime>2024-01-24T18:59:44.5883318-05:00</SourceTime>
+  <SourceTime>2024-01-25T18:46:05.2570193-05:00</SourceTime>
   <DestFile>/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/bluebrick.xnb</DestFile>
-  <DestTime>2024-01-24T19:01:22.3656477-05:00</DestTime>
+  <DestTime>2024-01-25T18:46:48.844733-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

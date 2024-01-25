@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/Users/Radagast/VSProjects/Castelian/Content/bluebrick.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/bluebrick.xnb","TextureProcessor","Texture2DContent",31638,65621,0.264383
+"/Users/Radagast/VSProjects/Castelian/Content/bluebrick.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/bluebrick.xnb","TextureProcessor","Texture2DContent",31726,65621,0.262952
 "/Users/Radagast/VSProjects/Castelian/Content/bluebrick64.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/bluebrick64.xnb","TextureProcessor","Texture2DContent",8162,16469,0.28317
 "/Users/Radagast/VSProjects/Castelian/Content/internetandrej_1_looped.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/internetandrej_1_looped.xnb","TextureProcessor","Texture2DContent",165890,6291541,0.530707
+"/Users/Radagast/VSProjects/Castelian/Content/marbled.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/marbled.xnb","TextureProcessor","Texture2DContent",264878,4194389,0.417085

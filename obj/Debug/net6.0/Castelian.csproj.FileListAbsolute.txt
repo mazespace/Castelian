@@ -26,3 +26,4 @@
 /Users/Radagast/VSProjects/Castelian/bin/Debug/net6.0/Content/bluebrick.xnb
 /Users/Radagast/VSProjects/Castelian/bin/Debug/net6.0/Content/bluebrick64.xnb
 /Users/Radagast/VSProjects/Castelian/bin/Debug/net6.0/Content/internetandrej_1_looped.xnb
+/Users/Radagast/VSProjects/Castelian/bin/Debug/net6.0/Content/marbled.xnb

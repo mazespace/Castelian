@@ -1,5 +1,8 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/Users/Radagast/VSProjects/Castelian/Content/ball_32px_noisy_32colors.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/ball_32px_noisy_32colors.xnb","TextureProcessor","Texture2DContent",3345,65621,0.283432
 "/Users/Radagast/VSProjects/Castelian/Content/bluebrick.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/bluebrick.xnb","TextureProcessor","Texture2DContent",31726,65621,0.262952
 "/Users/Radagast/VSProjects/Castelian/Content/bluebrick64.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/bluebrick64.xnb","TextureProcessor","Texture2DContent",8162,16469,0.28317
+"/Users/Radagast/VSProjects/Castelian/Content/Demonhead_strip16.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/Demonhead_strip16.xnb","TextureProcessor","Texture2DContent",16913,262229,0.372264
 "/Users/Radagast/VSProjects/Castelian/Content/internetandrej_1_looped.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/internetandrej_1_looped.xnb","TextureProcessor","Texture2DContent",165890,6291541,0.530707
 "/Users/Radagast/VSProjects/Castelian/Content/marbled.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/marbled.xnb","TextureProcessor","Texture2DContent",264878,4194389,0.417085
+"/Users/Radagast/VSProjects/Castelian/Content/passage_bluebrick.png","/Users/Radagast/VSProjects/Castelian/Content/bin/DesktopGL/Content/passage_bluebrick.xnb","TextureProcessor","Texture2DContent",19547,65621,0.281145

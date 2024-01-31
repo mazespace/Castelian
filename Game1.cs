@@ -8,11 +8,14 @@ namespace Castelian {
 	public class Game1 : Game {
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
+		Tower tower;
 
 		public Game1() {
 			_graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			IsMouseVisible = true;
+			IsFixedTimeStep = true;
+			Primitives2D.DegreesMode = true;
 		}
 
 		public static int WindowWidth, WindowHeight;
@@ -44,18 +47,19 @@ namespace Castelian {
 
 
 
-		Tower tower;
 
 		protected override void LoadContent() {
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
-
 			Texture2D cylinderTexture = Content.Load<Texture2D>("bluebrick");
 			Texture2D background = Content.Load<Texture2D>("internetandrej_1_looped");
 			Texture2D marble = Content.Load<Texture2D>("marbled");
-
-			tower = new(656, 16, cylinderTexture, background, marble);
+			//magic number for 64px to be square: 656
+			Texture2D spriteTexture = Content.Load<Texture2D>("ball_32px_noisy_32colors");
+			Texture2D passage = Content.Load<Texture2D>("passage_bluebrick");
+			tower = new Tower(656, 30, 16, cylinderTexture, background, marble, spriteTexture, passage);
 		}
 
+		KeyboardState prevState;
 		protected override void Update(GameTime gameTime) {
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
@@ -63,11 +67,28 @@ namespace Castelian {
 			MouseState mouseState = Mouse.GetState();
 			Point cursor = new(mouseState.X, mouseState.Y);
 
+			KeyboardState state = Keyboard.GetState();
+
+			if (prevState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space))
+				tower.Paused = !tower.Paused;
+			if (prevState.IsKeyUp(Keys.Up) && state.IsKeyDown(Keys.Up))
+				tower.speed += 5.0f;
+			if (prevState.IsKeyUp(Keys.Down) && state.IsKeyDown(Keys.Down))
+				tower.speed -= 5.0f;
+
+			int left = state.IsKeyDown(Keys.Left) ? -1 : 0;
+			int right = state.IsKeyDown(Keys.Right) ? 1 : 0;
+			tower.Move = left + right;
+
+			prevState = state;
 
 			tower.Update(gameTime, cursor);
+			tower.Move = 0;
 
 			base.Update(gameTime);
 		}
+
+
 
 
 
@@ -75,9 +96,14 @@ namespace Castelian {
 			GraphicsDevice.Clear(Color.Black);
 			_spriteBatch.Begin(samplerState: SamplerState.PointWrap);
 			tower.DrawBackground(_spriteBatch);
+			if (tower.Paused) {
+				Primitives2D.FillRectangle(_spriteBatch, new Rectangle(WindowWidth - 96, 32, 16, 64), Color.Yellow);
+				Primitives2D.FillRectangle(_spriteBatch, new Rectangle(WindowWidth - 64, 32, 16, 64), Color.Yellow);
+			}
+				
 			_spriteBatch.End();
-			_spriteBatch.Begin(samplerState: SamplerState.AnisotropicWrap, sortMode: SpriteSortMode.FrontToBack);
-			tower.Draw(_spriteBatch);
+			_spriteBatch.Begin(samplerState: SamplerState.AnisotropicWrap, sortMode: SpriteSortMode.BackToFront);
+			tower.Draw2(_spriteBatch, gameTime);
 			_spriteBatch.End();
 
 			base.Draw(gameTime);

@@ -4,12 +4,18 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>/Users/Radagast/VSProjects/Castelian/Content/ball_32px_noisy_32colors.png</File>
     <File>/Users/Radagast/VSProjects/Castelian/Content/bluebrick.png</File>
     <File>/Users/Radagast/VSProjects/Castelian/Content/bluebrick64.png</File>
+    <File>/Users/Radagast/VSProjects/Castelian/Content/Demonhead_strip16.png</File>
     <File>/Users/Radagast/VSProjects/Castelian/Content/internetandrej_1_looped.png</File>
     <File>/Users/Radagast/VSProjects/Castelian/Content/marbled.png</File>
+    <File>/Users/Radagast/VSProjects/Castelian/Content/passage_bluebrick.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
